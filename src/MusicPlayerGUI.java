@@ -15,7 +15,7 @@ public class MusicPlayerGUI extends JFrame {
     public static final Color FRAME_COLOR = Color.BLACK;
     public static final Color TEXT_COLOR = Color.WHITE;
 
-    private MusicPlayer musicPlayer;
+    public MusicPlayer musicPlayer;
 
     // allow us to use file explorer in our app
     private JFileChooser jFileChooser;
@@ -181,6 +181,18 @@ public class MusicPlayerGUI extends JFrame {
             }
         });
         playlistMenu.add(createPlaylist);
+
+        // then add the items to the playlist menu
+        JMenuItem seePlaylist = new JMenuItem("See Playlist");
+        seePlaylist.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // load music playlist dialog
+                new SeeMusicPlaylistDialog(MusicPlayerGUI.this).setVisible(true);
+
+            }
+        });
+        playlistMenu.add(seePlaylist);
 
         JMenuItem loadPlaylist = new JMenuItem("Load Playlist");
         loadPlaylist.addActionListener(new ActionListener() {

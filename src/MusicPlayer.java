@@ -18,7 +18,7 @@ public class MusicPlayer extends PlaybackListener {
         return currentSong;
     }
 
-    private ArrayList<Song> playlist;
+    public ArrayList<Song> playlist;
 
     // we will need to keep track the index we are in the playlist
     private int currentPlaylistIndex;
@@ -166,6 +166,9 @@ public class MusicPlayer extends PlaybackListener {
 
         // play the song
         playCurrentSong();
+//        SeeMusicPlaylistDialog music = new SeeMusicPlaylistDialog(this.musicPlayerGUI);
+//        music.setVisible(true);
+//        music.revalidate();
     }
 
     public void prevSong(){
@@ -223,6 +226,9 @@ public class MusicPlayer extends PlaybackListener {
         }catch(Exception e){
             e.printStackTrace();
         }
+//        SeeMusicPlaylistDialog music = new SeeMusicPlaylistDialog(this.musicPlayerGUI);
+//        music.setVisible(true);
+//        music.revalidate();
     }
 
     // create a thread that will handle playing the music
@@ -329,23 +335,3 @@ public class MusicPlayer extends PlaybackListener {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

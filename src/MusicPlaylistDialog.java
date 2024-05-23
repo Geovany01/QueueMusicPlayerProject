@@ -119,12 +119,3 @@ public class MusicPlaylistDialog extends JDialog {
         add(savePlaylistButton);
     }
 }
-
-
-
-
-
-
-
-
-
