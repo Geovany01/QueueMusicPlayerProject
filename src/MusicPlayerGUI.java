@@ -15,6 +15,12 @@ public class MusicPlayerGUI extends JFrame {
     public static final Color FRAME_COLOR = Color.BLACK;
     public static final Color TEXT_COLOR = Color.WHITE;
 
+    private String currentPlaylistPath;
+
+    public String getCurrentPlaylistPath() {
+        return currentPlaylistPath;
+    }
+
     public MusicPlayer musicPlayer;
 
     // allow us to use file explorer in our app
@@ -206,6 +212,9 @@ public class MusicPlayerGUI extends JFrame {
                 File selectedFile = jFileChooser.getSelectedFile();
 
                 if(result == JFileChooser.APPROVE_OPTION && selectedFile != null){
+                    // Store the path of the loaded playlist
+                    currentPlaylistPath = selectedFile.getAbsolutePath();
+
                     // stop the music
                     musicPlayer.stopSong();
 
@@ -215,6 +224,15 @@ public class MusicPlayerGUI extends JFrame {
             }
         });
         playlistMenu.add(loadPlaylist);
+
+        JMenuItem editPlaylist = new JMenuItem("Edit Playlist"); // New "Edit Playlist" button
+        editPlaylist.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new EditPlaylistDialog(MusicPlayerGUI.this).setVisible(true);
+            }
+        });
+        playlistMenu.add(editPlaylist);
 
         add(toolBar);
     }

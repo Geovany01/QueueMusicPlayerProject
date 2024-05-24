@@ -116,6 +116,29 @@ public class MusicPlayer extends PlaybackListener {
         }
     }
 
+    public void addSong(Song song, File playlistFile) {
+        playlist.add(song);
+        savePlaylistToFile(playlistFile);
+    }
+
+    public void deleteLastSong(File playlistFile) {
+        if (!playlist.isEmpty()) {
+            playlist.remove(playlist.size() - 1);
+            savePlaylistToFile(playlistFile);
+        }
+    }
+
+    public void savePlaylistToFile(File playlistFile) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(playlistFile))) {
+            for (Song song : playlist) {
+                writer.write(song.getFilePath());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void pauseSong(){
         if(advancedPlayer != null){
             // update isPaused flag
