@@ -166,9 +166,6 @@ public class MusicPlayer extends PlaybackListener {
 
         // play the song
         playCurrentSong();
-//        SeeMusicPlaylistDialog music = new SeeMusicPlaylistDialog(this.musicPlayerGUI);
-//        music.setVisible(true);
-//        music.revalidate();
     }
 
     public void prevSong(){
@@ -300,7 +297,7 @@ public class MusicPlayer extends PlaybackListener {
     @Override
     public void playbackStarted(PlaybackEvent evt) {
         // this method gets called in the beginning of the song
-        System.out.println("Playback Started");
+//        System.out.println("Playback Started");
         songFinished = false;
         pressedNext = false;
         pressedPrev = false;
@@ -309,7 +306,7 @@ public class MusicPlayer extends PlaybackListener {
     @Override
     public void playbackFinished(PlaybackEvent evt) {
         // this method gets called when the song finishes or if the player gets closed
-        System.out.println("Playback Finished");
+//        System.out.println("Playback Finished");
         if(isPaused){
             currentFrame += (int) ((double) evt.getFrame() * currentSong.getFrameRatePerMilliseconds());
         }else{
